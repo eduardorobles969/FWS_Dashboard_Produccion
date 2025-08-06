@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.kyba_x_hectornbb_forge_your_destiny"
+    namespace = "com.example.fws_dashboard_produccion"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.kyba_x_hectornbb_forge_your_destiny"
+        applicationId = "com.example.fws_dashboard_produccion"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
