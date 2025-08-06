@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "528624383851",
+    "project_id": "fws-dashboard-produccion",
+    "storage_bucket": "fws-dashboard-produccion.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528624383851:android:e7cdfb9c2135b095253e2e",
+        "android_client_info": {
+          "package_name": "com.example.fws_dashboard_produccion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbM1iamfMFQWkr4I9ihjzvu3mf7iU4z-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
