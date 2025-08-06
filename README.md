@@ -6,8 +6,8 @@
 
 # 📊 FWS Dashboard de Producción
 
-**Dashboard de Manufactura para Fussion Welding Solution**  
-**Manufacturing Dashboard for Fussion Welding Solution**
+**Dashboard de Manufactura para Fusion Welding Solutions**  
+**Manufacturing Dashboard for Fusion Welding Solutions**
 
 ---
 
@@ -19,9 +19,9 @@ FWS_Dashboard_Produccion es una plataforma digital desarrollada con **Flutter** 
 ---
 
 ## 🏭 ¿Para quién es?
-Este proyecto está diseñado especialmente para **Fussion Welding Solution**, una empresa comprometida con la innovación y la mejora continua en sus procesos industriales.
+Este proyecto está diseñado especialmente para **Fusion Welding Solutions**, una empresa comprometida con la innovación y la mejora continua en sus procesos industriales.
 
-> This project is designed for **Fussion Welding Solution**, a company committed to innovation and continuous improvement in its industrial processes.
+> This project is designed for **Fusion Welding Solutions**, a company committed to innovation and continuous improvement in its industrial processes.
 
 ---
 
