@@ -1,3 +1,3 @@
-# kyba_x_hectornbb_forge_your_destiny
+# fws_dashboard_produccion
 
-A new Flutter project.
+Dashboard para monitorear tornos/CNC, productividad, tiempos y más.

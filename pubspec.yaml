@@ -1,5 +1,14 @@
 name: fws_dashboard_produccion
-description: Dashboard para monitorear tornos/CNC, productividad, tiempos y más.
+description: Proyecto privado para Fussion Welding Solution.
+
+# 🤝 ¿Quieres colaborar? / Want to contribute?
+# ¡Este proyecto está iniciando y estamos abiertos a nuevas ideas!
+# Si quieres colaborar en diseño, desarrollo o análisis, contáctame por correo o por redes.
+# Todo aporte que ayude a la industria y a la excelencia operativa es bienvenido.
+
+# 🛡️ Licencia
+# Este proyecto está bajo licencia privada para Fussion Welding Solution.
+# Uso externo requiere autorización expresa.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -12,14 +21,12 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^3.3.1
-
   english_words: ^4.0.0
   provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^2.0.0
 
 flutter:
