@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'main.dart'; // ← Para acceder a MyHomePage
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Color.fromARGB(248, 211, 202, 184), // Selecciona un color de fondo
+      backgroundColor: Color.fromARGB(248, 211, 202, 184),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 202, 202, 202),
         title: Text("Fusion Welding Solution"),
@@ -20,7 +20,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 50),
               child: Image.network(
                 'https://fusionweldingsolution.wordpress.com/wp-content/uploads/2024/06/fusionlogo__hard.png',
-                height: 100, // Ajusta el tamaño a tu gusto
+                height: 100,
               ),
             ),
             Container(
@@ -49,10 +49,7 @@ class Login extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.person,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            prefixIcon: Icon(Icons.person),
                             hintText: "User Email",
                             fillColor: Colors.grey[300],
                             filled: true,
@@ -62,15 +59,11 @@ class Login extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
+                        SizedBox(height: 20),
                         TextFormField(
+                          obscureText: true,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.vpn_key,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            prefixIcon: Icon(Icons.vpn_key),
                             hintText: "Password",
                             fillColor: Colors.grey[300],
                             filled: true,
@@ -90,7 +83,14 @@ class Login extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).primaryColor,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyHomePage(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Login",
                         style: TextStyle(
@@ -101,7 +101,7 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Sing Up",
+                    "Sign Up",
                     style: TextStyle(
                       color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.bold,

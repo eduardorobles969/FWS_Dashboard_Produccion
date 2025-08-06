@@ -1,44 +1,46 @@
-import 'login.dart';
-import 'package:english_words/english_words.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase/firebase_options.dart'; // Este archivo lo genera Firebase automáticamente
-import 'screens/login_screen.dart';
+import 'firebase_options.dart'; // ← corregido
+
+import 'login.dart'; // ← tu pantalla de login
+import 'package:provider/provider.dart';
+import 'package:english_words/english_words.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => MyAppState(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'FWS Dashboard',
       theme: ThemeData(
-        primaryColor: Color(0xFF142831),
+        useMaterial3: true,
+        colorSchemeSeed: Colors.blue,
       ),
-      home: Login(),
+      home: Login(), // ← nombre del widget corregido
     );
   }
 }
 
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
+  var favorites = <WordPair>[];
 
   void getNext() {
     current = WordPair.random();
     notifyListeners();
   }
-
-  var favorites = <WordPair>[];
 
   void toggleFavorite() {
     if (favorites.contains(current)) {
@@ -69,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = FavoritesPage();
         break;
       case 2:
-        page = ProfilePage(); // Nueva pestaña
+        page = ProfilePage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -93,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   NavigationRailDestination(
                     icon: Icon(Icons.person),
-                    label: Text('Perfil'), // Nueva pestaña
+                    label: Text('Perfil'),
                   ),
                 ],
                 selectedIndex: selectedIndex,
@@ -123,12 +125,9 @@ class GeneratorPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
 
-    IconData icon;
-    if (appState.favorites.contains(pair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
+    IconData icon = appState.favorites.contains(pair)
+        ? Icons.favorite
+        : Icons.favorite_border;
 
     return Center(
       child: Column(
@@ -164,12 +163,9 @@ class GeneratorPage extends StatelessWidget {
 }
 
 class BigCard extends StatelessWidget {
-  const BigCard({
-    super.key,
-    required this.pair,
-  });
-
+  const BigCard({super.key, required this.pair});
   final WordPair pair;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -196,17 +192,14 @@ class FavoritesPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     if (appState.favorites.isEmpty) {
-      return Center(
-        child: Text('No favorites yet.'),
-      );
+      return Center(child: Text('No favorites yet.'));
     }
 
     return ListView(
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Text('You have '
-              '${appState.favorites.length} favorites:'),
+          child: Text('You have ${appState.favorites.length} favorites:'),
         ),
         for (var pair in appState.favorites)
           ListTile(
@@ -225,19 +218,11 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Animación de confeti usando Lottie (requiere agregar lottie en pubspec.yaml)
-          SizedBox(
-            height: 200,
-            child: Lottie.network(
-              'https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json',
-              repeat: true,
-            ),
-          ),
           SizedBox(height: 20),
           CircleAvatar(
             radius: 40,
             backgroundImage: NetworkImage(
-              'https://avatars.githubusercontent.com/u/9919?s=200&v=4', // Puedes cambiar la imagen
+              'https://avatars.githubusercontent.com/u/9919?s=200&v=4',
             ),
           ),
           SizedBox(height: 20),
